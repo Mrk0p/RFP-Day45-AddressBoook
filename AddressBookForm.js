@@ -107,3 +107,17 @@ const setTextValue = (id,value) => {
     let element = document.querySelector(id);
     element.textContent = value;
 }
+
+function createAndUpdateStorage(personContact) {
+
+    let contactList = JSON.parse(localStorage.getItem("ContactList"));
+
+    if(contactList != undefined){
+        contactList.push(personContact);
+    } else {
+        contactList = [personContact]
+    }
+
+    alert(contactList.toString());
+    localStorage.setItem("ContactList",JSON.stringify(contactList));
+}
