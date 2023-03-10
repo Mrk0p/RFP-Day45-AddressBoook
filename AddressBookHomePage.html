@@ -66,6 +66,42 @@
                     </div>
                 </div>
         </form>
+        <script>
+            const flname = document.querySelector('#flname');
+            const nameError = document.querySelector('.name-error');
+            flname.addEventListener('input',function(){
+                let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
+                if(nameRegex.test(flname.value)) {
+                    nameError.textContent="";
+                } else {
+                    nameError.textContent="Name is Invalid";
+                }
+            });
+
+            const phnumber = document.querySelector('#phnumber');
+            const phnumberError = document.querySelector('.phnumber-error');
+            phnumber.addEventListener('input',function(){
+                let phoneRegex1 = RegExp('^[1-9][0-9]{9}$');
+                let phoneRegex2 = RegExp('^[0-9]{2}[1-9][0-9]{9}$');
+                let phoneRegex3 = RegExp('^[+][0-9]{2}[1-9][0-9]{9}$');
+                if(phoneRegex1.test(phnumber.value) || phoneRegex2.test(phnumber.value) || phoneRegex3.test(phnumber.value) ) {
+                    phnumberError.textContent="";
+                } else {
+                    phnumberError.textContent="Phone number is Invalid";
+                }
+            });
+
+            const address = document.querySelector('#address');
+            const addressError = document.querySelector('.address-error');
+            address.addEventListener('input',function(){
+                let addressRegex = RegExp('^([A-Za-z0-9\\.\\-\\s\\,\\ ]+)$');
+                if(addressRegex.test(address.value)) {
+                    addressError.textContent="";
+                } else {
+                    addressError.textContent="Address is Invalid";
+                }
+            });
+        </script>
     </div>
 </body>
 </html>
